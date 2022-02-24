@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UMS.Models.Database;
 
 namespace UMS.Controllers
 {
@@ -10,6 +11,8 @@ namespace UMS.Controllers
     {
         public ActionResult Index()
         {
+            var db = new UMSEntities();
+            var dept = (from d in db.Departments where d.Id == 1 select d).FirstOrDefault();
             return View();
         }
 
